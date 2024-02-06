@@ -1,0 +1,12 @@
+[[enum-code-fields]]
+== Enum Code Fields
+
+.Enum 코드를 정의 합니다.
+[NOTE]
+--
+--
+
+=== 권한 종류
+
+.Role
+include::{snippets}/enum-code-docs-test/enum-codes/common-enum-code-fields-roles.adoc[]

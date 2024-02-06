@@ -1,0 +1,18 @@
+[[paging-format]]
+=== Paging Format
+
+[NOTE]
+--
+- Paging 된 응답 정보일 경우 `data` 에 `content` 와 `pageInfo` 를 응답합니다.
+- `content` 는 조회 데이터를 담고 있습니다.
+- `pageInfo` 는 페이징 정보를 담고 있습니다.
+- Paging 시작은 `0` 입니다.
+--
+
+.Page Response Format
+====
+include::{snippets}/api-response-entity-docs-test/common-page-format/http-response.adoc[]
+====
+
+.Page Info Fields
+include::{snippets}/api-response-entity-docs-test/common-page-format/response-fields-data.page.adoc[]

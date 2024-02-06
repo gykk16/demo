@@ -1,0 +1,38 @@
+[[http-verbs]]
+== Http Verbs
+
+.HTTP 상태 코드를 정의 합니다.
+[NOTE]
+--
+`2xx` 외의 코드는 실패 응답이며, `406` 코드는 비즈니스 오류로 정의 합니다.
+--
+
+.Http Status Code
+[cols="2,3"]
+|===
+| Http Status code | 설명
+
+| `200 OK`
+| 요청이 성공적으로 처리 되었습니다.
+
+| `201 Created`
+| 요청이 성공적이었으며 그 결과로 새로운 리소스가 생성 되었습니다.
+
+| `400 Bad Request`
+| 잘못된 요청입니다.
+
+| `401 Unauthorized`
+| 미인증 상태입니다.
+
+| `403 Forbidden`
+| 인증 정보를 찾을 수 없습니다.
+
+| `404 Not Found`
+| 요청받은 리소스를 찾을 수 없습니다.
+
+| `*406 Not Acceptable`
+| 비즈니스 오류 입니다.
+
+| `500 Internal Server Error`
+| 서버 오류.
+|===

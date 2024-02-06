@@ -1,0 +1,65 @@
+# =====================================================================================================================
+# Spring Boot Profile Group Config
+# =====================================================================================================================
+spring:
+  profiles:
+    group:
+      default: local
+      local:
+        - local
+        - common
+      dev:
+      prod:
+
+---
+# =====================================================================================================================
+# Application Info - properties 방식으로 해야 build.gradle 파일에서 읽을 수 있다...
+# =====================================================================================================================
+info.app.version: 0.0.2
+info:
+  app:
+    name: demo pet project
+    name-kor: 데모 프로젝트
+    group: dev-glory
+    alias: ${info.app.group}-demo
+
+
+# ==============================
+# spring
+# ==============================
+spring:
+  config:
+    activate:
+      on-profile: common
+  output:
+    ansi:
+      enabled: always
+
+
+# ==============================
+# application
+# ==============================
+application:
+  security:
+    jwt:
+      access-token-expire-min: 60
+      refresh-token-expire-min: 1440
+    rsa:
+      public-key: classpath:certs/public.pem
+      private-key: classpath:certs/private.pem
+
+webapp:
+  worker-id: 1
+  process-id: 1
+
+# ==============================
+# server
+# ==============================
+server:
+  # servlet
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  # graceful 종료 활성
+  shutdown: graceful

@@ -1,0 +1,81 @@
+# =====================================================================================================================
+# Spring Boot Config - LOCAL
+# =====================================================================================================================
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      pool-name: h2-local-DS
+      connection-timeout: 10000
+      idle-timeout: 300000
+      max-lifetime: 300000
+      minimum-idle: 5
+      maximum-pool-size: 50
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    database: h2
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+        order_updates: true
+        order_inserts: true
+        jdbc:
+          batch_size: 100
+        # Non-temporary table bulk mutation strategy
+        query:
+    #          mutation_strategy: org.hibernate.query.sqm.mutation.internal.inline.InlineMutationStrategy
+    open-in-view: false
+
+# ==============================
+# server
+# ==============================
+server:
+  # error
+  error:
+    include-binding-errors: never
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+    whitelabel:
+      enabled: false
+
+# =====================================================================================================================
+# logging
+# =====================================================================================================================
+logging:
+  group:
+    app: "dev.glory"
+    hikari: "com.zaxxer.hikari"
+    transaction: "org.springframework.transaction, org.springframework.orm.jpa.JpaTransactionManager, org.hibernate.engine.transaction.internal.TransactionImpl"
+    query: "org.hibernate.SQL, org.hibernate.SQL_SLOW"
+    bind: "org.hibernate.orm.jdbc.bind"
+  level:
+    app: debug
+    sql: debug
+    query: debug
+    bind: trace
+
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%5.5p) [%15.15t] [%clr(%-36.36X{REQ_TRACE_KEY}){magenta}] --- %clr(%-40.40logger{39}){cyan} : %m%n%throwable"
+
+  charset:
+    file: UTF-8
+    console: UTF-8

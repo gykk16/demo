@@ -1,0 +1,34 @@
+ifndef::snippets[]
+:snippets: ../../build/generated-snippets
+endif::[]
+= Demo Application
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:table-stripes: hover
+// :sectlinks:
+:sectanchors:
+
+= Overview
+
+.본 문서는 API 연동 가이드를 제공합니다.
+[[api-guide]]
+[NOTE]
+--
+--
+
+include::{docdir}/template/temp-http-verbs.adoc[]
+include::{docdir}/template/temp-req-res-format.adoc[]
+include::{docdir}/template/temp-page-format.adoc[]
+include::{docdir}/template/temp-common-response-codes.adoc[]
+include::{docdir}/template/temp-enum-codes.adoc[]
+
+[[apis]]
+= API List
+
+== v1
+
+* link:auth/auth.html[인증 API]
+* link:notice/notice.html[공지사항 API]
+

@@ -1,0 +1,160 @@
+= Notice API Guide
+공지사항 API 연동 가이드
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:table-stripes: hover
+// :sectlinks:
+:sectanchors:
+:sectnums:
+:sectnumlevels: 2
+
+= Overview
+
+.본 문서는 공지사항 API 연동하기 위한 문서입니다.
+[NOTE]
+--
+- 공지사항 API 는 목록 조회, 조회, 수정, 삭제 기능을 제공합니다.
+- 모든 요청은 `Authorization` Header 에 인증 토큰을 전달 해야 합니다.
+--
+
+[[notice-find-list]]
+== 공지 목록 조회
+
+./api/v1/notice
+[NOTE]
+--
+- 공지 목록을 조회 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/notice-controller-docs-test/find-list/http-request.adoc[]
+
+.Query Parameters
+include::{snippets}/notice-controller-docs-test/find-list/query-parameters.adoc[]
+
+=== Http Response
+
+include::{snippets}/notice-controller-docs-test/find-list/http-response.adoc[]
+
+.Response Fields `data.content[]`
+include::{snippets}/notice-controller-docs-test/find-list/response-fields-data.content.adoc[]
+
+[[notice-find-by-id]]
+== 공지 조회
+
+./api/v1/notice/+{id}+
+[NOTE]
+--
+- 공지를 조회 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/notice-controller-docs-test/find-by-id/http-request.adoc[]
+
+.Path Parameters
+include::{snippets}/notice-controller-docs-test/find-by-id/path-parameters.adoc[]
+
+=== Http Response
+
+include::{snippets}/notice-controller-docs-test/find-by-id/http-response.adoc[]
+
+.Response Fields `data`
+include::{snippets}/notice-controller-docs-test/find-by-id/response-fields-data.adoc[]
+
+[[notice-save]]
+== 공지 등록
+
+./api/v1/notice
+[NOTE]
+--
+- 신규 공지를 등록 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/notice-controller-docs-test/save/http-request.adoc[]
+
+.Part Parameters
+include::{snippets}/notice-controller-docs-test/save/request-parts.adoc[]
+* 지원 파일 형식: txt, csv, xlsx
+
+.Form Parameters
+include::{snippets}/notice-controller-docs-test/save/form-parameters.adoc[]
+
+=== Http Response
+
+include::{snippets}/notice-controller-docs-test/save/http-response.adoc[]
+
+.Response Fields `data`
+|===
+|Path|Type|Format|Description
+
+|`+data+`
+|Number
+|
+|공지 id
+|===
+
+[[notice-path]]
+== 공지 수정
+
+./api/v1/notice
+[NOTE]
+--
+- 공지를 수정 합니다.
+- 공지 수정은 작성자만 가능 합니다.
+- 변경 내용이 있는 데이터에 대해서만 수정 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/notice-controller-docs-test/patch/http-request.adoc[]
+
+.Path Parameters
+include::{snippets}/notice-controller-docs-test/patch/path-parameters.adoc[]
+
+.Request Body
+include::{snippets}/notice-controller-docs-test/patch/request-fields.adoc[]
+
+=== Http Response
+
+include::{snippets}/notice-controller-docs-test/patch/http-response.adoc[]
+
+.Response Fields `data`
+include::{snippets}/notice-controller-docs-test/patch/response-fields-data.adoc[]
+
+[[notice-delete]]
+== 공지 삭제
+
+./api/v1/notice/delete
+[NOTE]
+--
+- 공지를 삭제 합니다.
+- 공지 삭제는 작성자만 가능 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/notice-controller-docs-test/delete/http-request.adoc[]
+
+.Path Parameters
+include::{snippets}/notice-controller-docs-test/delete/path-parameters.adoc[]
+
+=== Http Response
+
+include::{snippets}/notice-controller-docs-test/delete/http-response.adoc[]
+
+.Response Fields `data`
+|===
+|Path|Type|Format|Description
+
+|`+data+`
+|Number
+|
+|삭제 된 공지 id
+|===

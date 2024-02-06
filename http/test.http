@@ -1,0 +1,122 @@
+
+@access-token-k = eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJraWxkb25nIiwiZXhwIjoxNzA3MjE0ODUxLCJpYXQiOjE3MDcyMTEyNTEsInNjb3BlIjoiTUFOQUdFUiJ9.uLnE-X8f72jC85ewRQdMXfRygWeGw2modg2Jw4Ge-xyVqmpxF4EG_TS0iyp6AUAm6FjzJ3GCuI7n36aTSlePq9LBf5WgcZ4q09UsLCuTr4SO-CBEg1XjocLmt5lyirSIpXe3rF_H1eY6ecHzGStfrbwmo-Jmb6s0vQFKjrzE339BdmN6MCIgFSERgtdXxZFueo4NU2n3Hi5ZVLDTSt14l4C2KQGmzKwi54ua94-oMXpEcLVroYZma9t7mE0r7gR0zcdtQK9O3Fr-fhpHi8EQE749hoXqe_nxfkQlp25RQsP0RRKL8P_h66KDp576I-krTjGdeacfqkidWWuChhZR1g
+@access-token-m = eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJtYWxqYSIsImV4cCI6MTcwNzIxNTQ5MiwiaWF0IjoxNzA3MjExODkyLCJzY29wZSI6Ik1BTkFHRVIifQ.wGvTtVy72begvZaO5G8nBQRF1zp7fSlEjEnjY5omY1N5Bi7PrH2k-CqAqYBPulF-WyLb_YeGsgRuabtl8IlKQibuvR5lTEkrM4oSwYfVMmUEYIf1T5pzQwh6t6Lmp_k5hB79vZ1QCNyx3_y7etPPc-ZKs6f2IEB5DvJ8tA50yqE4WHIFV3w8VdsJu_BtZdo8vmaZYt58grcle7tuQh9k7VxN_X_2H6zjA7XTKKdRuQCAxPpxFQjFKabLKbCRdOwzQGelPNF3KqlZOgno3-iE_f1Th-evBQSwaIGSDwQymzPg6jL0iRJ8U72VUHoSChzZz3SGuxwOJ_KdfVb2rXKmxA
+
+### 사용자 등록
+POST /api/v1/auth/register
+host: localhost:8080
+content-type: application/json
+
+{
+  "username": "kildong",
+  "password": "mypass1",
+  "name": "김길동",
+  "email": "kildong@test.com",
+  "role": "MANAGER"
+}
+
+### 사용자 등록
+POST /api/v1/auth/register
+host: localhost:8080
+content-type: application/json
+
+{
+  "username": "malja",
+  "password": "mypass1",
+  "name": "김말자",
+  "email": "malja@test.com",
+  "role": "MANAGER"
+}
+
+
+### 공지 등록
+
+POST /api/v1/notice
+Host: localhost:8080
+Authorization: Bearer {{access-token-k}}
+Content-Type: multipart/form-data; boundary=xxx-boundary
+
+--xxx-boundary
+Content-Disposition: form-data; name="file"; filename="my-csv-file.csv"
+
+< ./files/my-csv-file.csv
+
+--xxx-boundary
+Content-Disposition: form-data; name="file"; filename="my-txt-file.txt"
+
+< ./files/my-txt-file.txt
+
+--xxx-boundary
+Content-Disposition: form-data; name="title"
+
+Lorem ipsum
+--xxx-boundary
+Content-Disposition: form-data; name="content"
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut orci vehicula, volutpat diam eu, scelerisque diam. Nulla a porttitor quam. Nulla ut molestie felis. Fusce sit amet sapien pellentesque nisl placerat sodales ut ac odio. Sed sed faucibus felis. Cras nisi risus, ullamcorper a nunc non, cursus posuere orci. Morbi eget efficitur metus. Aliquam feugiat ac mi commodo vestibulum. Nam ac lorem nec quam facilisis sollicitudin ac sed diam. Sed ac nibh a enim egestas imperdiet eget eget quam. Sed vel ullamcorper lacus, pharetra congue arcu. Mauris justo lacus, lobortis eu feugiat id, pulvinar sit amet elit. Quisque blandit elit vel mi cursus, in ornare odio ullamcorper. Donec ac elementum mi. Duis egestas elit at suscipit faucibus. Morbi sit amet mattis massa. Nunc auctor purus diam, nec suscipit ex gravida sed. Proin semper nibh malesuada dui eleifend consequat. Etiam non ligula id augue semper sagittis. Cras quis tincidunt quam. Curabitur eu magna maximus justo tincidunt malesuada a laoreet erat. Ut commodo sem ex, ac faucibus nisl mattis in. Nunc fringilla placerat blandit. Sed dapibus, nisi at consequat vulputate, tellus quam ultrices nulla, non venenatis massa augue vel magna. Praesent velit dui, condimentum id tristique id, pharetra vestibulum nisl. Curabitur non gravida urna, eu luctus eros. Donec eu tempor lacus. Mauris malesuada nunc lacus, sed convallis augue sagittis at. Cras vel purus vitae felis aliquam placerat. Quisque quis dui urna. Duis suscipit justo vel nulla rhoncus, sit amet scelerisque nulla scelerisque. Praesent quis hendrerit nibh, sit amet tincidunt sapien. Mauris sed finibus orci, ac eleifend nisi. Vivamus viverra gravida laoreet. Proin felis est, condimentum ut luctus sit amet, iaculis eleifend mauris. Praesent eget mi at diam accumsan pellentesque nec eu nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam aliquam, lorem nec convallis eleifend, lectus felis lacinia massa, vel tincidunt dui neque vel enim. Aliquam eu blandit ligula. In hac habitasse platea dictumst. Mauris iaculis gravida tempor. Vivamus interdum lacus velit. Etiam vel est et nibh elementum sagittis ac non nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In laoreet viverra laoreet. Mauris tristique sem rhoncus ex pharetra, eget sagittis ex blandit. Maecenas scelerisque ante vel odio sagittis, at congue odio varius. Praesent nec condimentum nibh, sit amet lacinia augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed sed dui ac enim varius varius id eget turpis. Suspendisse volutpat viverra enim at convallis. Sed at justo sollicitudin, molestie nisi eget, condimentum mi. Duis luctus mauris tellus, eu hendrerit nunc lacinia id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed consectetur erat et diam consectetur, at convallis tortor mattis.
+--xxx-boundary
+
+### 공지 등록
+
+POST /api/v1/notice
+Host: localhost:8080
+Authorization: Bearer {{access-token-m}}
+Content-Type: multipart/form-data; boundary=xxx-boundary
+
+--xxx-boundary
+Content-Disposition: form-data; name="file"; filename="my-csv-file.csv"
+
+< ./files/my-csv-file.csv
+
+--xxx-boundary
+Content-Disposition: form-data; name="file"; filename="my-txt-file.txt"
+
+< ./files/my-txt-file.txt
+
+--xxx-boundary
+Content-Disposition: form-data; name="title"
+
+Lorem ipsum (한글)
+--xxx-boundary
+Content-Disposition: form-data; name="content"
+
+로렘 입숨(lorem ipsum; 줄여서 립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트, 타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때 사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인 문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도 이용된다. 이런 용도로 사용할 때 로렘 입숨을 그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는 무언가를 지칭하는 용어로도 사용된다.
+로렘 입숨은 전통 라틴어와 닮은 점 때문에 종종 호기심을 유발하기도 하지만 그 이상의 의미를 담지는 않는다. 문서에서 텍스트가 보이면 사람들은 전체적인 프레젠테이션보다는 텍스트에 담긴 뜻에 집중하는 경향이 있어서 출판사들은 서체나 디자인을 보일 때는 프레젠테이션 자체에 초점을 맞추기 위해 로렘 입숨을 사용한다.
+
+--xxx-boundary
+
+### 공지 목록 조회
+
+GET /api/v1/notice
+    ?page=0
+    &size=5
+Host: localhost:8080
+Authorization: Bearer {{access-token-k}}
+Content-Type: application/json
+
+### 공지 조회
+
+GET /api/v1/notice/1
+Host: localhost:8080
+Authorization: Bearer {{access-token-k}}
+Content-Type: application/json
+
+
+### 공지 수정
+PATCH /api/v1/notice/1
+Host: localhost:8080
+Authorization: Bearer {{access-token-k}}
+Content-Type: application/json
+
+{
+  "title": "수정",
+  "content": ""
+}
+
+
+### 공지 삭제
+DELETE /api/v1/notice/1
+Host: localhost:8080
+Authorization: Bearer {{access-token-k}}
+Content-Type: application/json
+

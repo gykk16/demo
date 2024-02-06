@@ -1,0 +1,97 @@
+= Auth API Guide
+인증 API 연동 가이드;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:table-stripes: hover
+// :sectlinks:
+:sectanchors:
+:sectnums:
+:sectnumlevels: 2
+
+= Overview
+
+.본 문서는 인증 API 연동하기 위한 문서입니다.
+[NOTE]
+--
+- 인증 API 는 사용자 등록, 인증, 토큰 재발급 기능을 제공합니다.
+--
+
+[[auth-register]]
+== 사용자 등록
+
+./api/v1/auth/register
+[NOTE]
+--
+- 사용자 등록 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/auth-controller-docs-test/register/http-request.adoc[]
+
+.Request Fields
+include::{snippets}/auth-controller-docs-test/register/request-fields.adoc[]
+
+=== Http Response
+
+include::{snippets}/auth-controller-docs-test/register/http-response.adoc[]
+
+.Response Fields `data`
+include::{snippets}/auth-controller-docs-test/register/response-fields-data.adoc[]
+
+[[auth-authenticate]]
+== 사용자 등록
+
+./api/v1/auth/authenticate
+[NOTE]
+--
+- 사용자 정보를 인증 후 API 이용하기 위한 인증 토큰을 발급 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/auth-controller-docs-test/authenticate/http-request.adoc[]
+
+.Request Fields
+include::{snippets}/auth-controller-docs-test/authenticate/request-fields.adoc[]
+
+=== Http Response
+
+include::{snippets}/auth-controller-docs-test/authenticate/http-response.adoc[]
+
+.Response Fields `data`
+include::{snippets}/auth-controller-docs-test/authenticate/response-fields-data.adoc[]
+
+[[auth-refresh-token]]
+== 사용자 등록
+
+./api/v1/auth/refresh-token
+[NOTE]
+--
+- 사용자 인증 토큰을 재발급 합니다.
+--
+
+=== Http Request
+
+include::{snippets}/auth-controller-docs-test/refresh-token/http-request.adoc[]
+
+.Request Fields
+include::{snippets}/auth-controller-docs-test/refresh-token/request-fields.adoc[]
+
+=== Http Response
+
+include::{snippets}/auth-controller-docs-test/refresh-token/http-response.adoc[]
+
+.Response Fields `data`
+include::{snippets}/auth-controller-docs-test/refresh-token/response-fields-data.adoc[]
+
+= Codes
+
+include::{docdir}/../template/temp-common-response-codes.adoc[]
+include::{docdir}/../template/temp-enum-codes.adoc[]
+
+
+

@@ -1,0 +1,12 @@
+[[common-response-codes]]
+== Common Response Codes
+
+.공통 응답 코드를 정의 합니다.
+[NOTE]
+--
+--
+
+.Success Response Codes
+include::{snippets}/enum-code-docs-test/response-code/common-response-code-fields-success.adoc[]
+.Error Response Codes
+include::{snippets}/enum-code-docs-test/response-code/common-response-code-fields-error.adoc[]

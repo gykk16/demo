@@ -84,6 +84,9 @@ public class NoticeController {
         return ApiResponseEntity.of(CREATED, noticeId);
     }
 
+    /**
+     * 공지 수정
+     */
     @PatchMapping("{id}")
     public ResponseEntity<ApiResponseEntity<NoticeDto>> patch(@PathVariable("id") Long id,
             @Validated @RequestBody NoticeUpdateRequest requestDTO,
@@ -103,6 +106,9 @@ public class NoticeController {
         return ApiResponseEntity.of(SUCCESS, id);
     }
 
+    /**
+     * 공지 삭제
+     */
     // @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponseEntity<Long>> delete(@PathVariable("id") Long id, Principal principal) {
 

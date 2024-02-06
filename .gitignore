@@ -155,3 +155,4 @@ gradle/
 **/generated/*
 .jpb/*
 src/main/resources/certs
+src/main/resources/static/docs

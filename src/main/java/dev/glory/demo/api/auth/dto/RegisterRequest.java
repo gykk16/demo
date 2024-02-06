@@ -9,7 +9,7 @@ import dev.glory.demo.domain.user.role.Role;
 /**
  * 사용자 등록 api spec
  *
- * @param username 사용자 noticeId
+ * @param username 사용자 id
  * @param password 비밀번호
  * @param name     이름
  * @param email    이메일
